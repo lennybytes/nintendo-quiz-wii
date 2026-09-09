@@ -34,6 +34,56 @@ static const Question quiz[] = {
         {"Ocarina of Time", "Twilight Princess", "Skyward Sword", "Breath of the Wild"},
         1,
     },
+    {
+        "Which company created the Nintendo Entertainment System (NES)?",
+        {"Sega", "Nintendo", "Sony", "Atari"},
+        1,
+    },
+    {
+        "What is Mario's brother's name?",
+        {"Luigi", "Wario", "Yoshi", "Toad"},
+        0,
+    },
+    {
+        "Which Nintendo console was released first?",
+        {"Nintendo 64", "GameCube", "NES", "Wii"},
+        2,
+    },
+    {
+        "What is the name of Link's main enemy in The Legend of Zelda?",
+        {"Bowser", "Ganondorf", "Ridley", "King Boo"},
+        1,
+    },
+    {
+        "Which Pokemon is number 001 in the National Pokedex?",
+        {"Pikachu", "Charmander", "Bulbasaur", "Squirtle"},
+        2,
+    },
+    {
+        "What was the first Nintendo handheld console with interchangeable cartridges?",
+        {"Game Boy", "Nintendo DS", "Game Boy Advance", "Nintendo 3DS"},
+        0,
+    },
+    {
+        "Which Nintendo console uses Wii Remotes?",
+        {"Wii", "GameCube", "Wii U", "Nintendo 64"},
+        0,
+    },
+    {
+        "In which game series can you find the character Samus Aran?",
+        {"Star Fox", "Metroid", "F-Zero", "Kirby"},
+        1,
+    },
+    {
+        "What is the name of Mario's dinosaur friend?",
+        {"Birdo", "Yoshi", "Koopa", "Diddy"},
+        1,
+    },
+    {
+        "Which Nintendo console was known for using small optical discs?",
+        {"Game Boy", "Nintendo 64", "GameCube", "SNES"},
+        2,
+    },
 };
 
 #define NUM_QUESTIONS ((int)(sizeof(quiz) / sizeof(quiz[0])))
@@ -74,19 +124,19 @@ static void wait_for_home(void)
 
 int main(void)
 {
-    // Video initialisieren
+    // Initialize video
     VIDEO_Init();
 
-    // Wiimote-Subsystem initialisieren (sonst geht die Wiimote aus)
+    // Initialize Wiimote subsystem (otherwise the Wiimote powers off)
     WPAD_Init();
 
-    // Bevorzugten Video-Modus holen
+    // Get the preferred video mode
     rmode = VIDEO_GetPreferredMode(NULL);
 
-    // Framebuffer reservieren
+    // Allocate the framebuffer
     xfb = MEM_K0_TO_K1(SYS_AllocateFramebuffer(rmode));
 
-    // Console initialisieren
+    // Initialize the console
     console_init(
         xfb,
         20,
@@ -96,19 +146,19 @@ int main(void)
         rmode->fbWidth * VI_DISPLAY_PIX_SZ
     );
 
-    // Video konfigurieren
+    // Configure video
     VIDEO_Configure(rmode);
 
-    // Framebuffer setzen
+    // Set the framebuffer
     VIDEO_SetNextFramebuffer(xfb);
 
-    // Bildschirm einschalten
+    // Turn the screen on
     VIDEO_SetBlack(FALSE);
 
-    // Video-Ausgabe aktualisieren
+    // Flush the video output
     VIDEO_Flush();
 
-    // Auf VSync warten
+    // Wait for VSync
     VIDEO_WaitVSync();
 
     if (rmode->viTVMode & VI_NON_INTERLACE)
