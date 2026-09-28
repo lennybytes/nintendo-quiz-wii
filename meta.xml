@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <app version="1">
   <name>Nintendo Quiz</name>
-  <version>1.0</version>
-  <release_date>20260829000000</release_date>
+  <version>2.0</version>
+  <release_date>20260928000000</release_date>
   <coder>Lenny</coder>
   <short_description>Nintendo Quiz By Lenny</short_description>
-  <long_description>Challange your Nintendo knowledge in a easy homebrew programm made by lenny for the wii and for the wii u!</long_description>
+  <long_description>Challenge your Nintendo knowledge in this homebrew quiz game for the Wii and Wii U! Features 30 questions, multiple difficulty levels, timed questions, and highscore tracking. Made by Lenny.</long_description>
 </app>

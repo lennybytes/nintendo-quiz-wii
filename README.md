@@ -1,15 +1,18 @@
 # Nintendo Quiz (Wii Homebrew)
 
-A small homebrew trivia quiz game for the Nintendo Wii (and Wii U in vWii mode) that challenges your Nintendo knowledge. Answer four multiple-choice questions using your Wii Remote, earn points, and see your final score.
+A homebrew trivia quiz game for the Nintendo Wii (and Wii U in vWii mode) that challenges your Nintendo knowledge. Answer multiple-choice questions using your Wii Remote, earn points, and compete for highscores!
 
 ![icon](icon.png)
 
 ## Features
 
-- 4 questions covering classic Nintendo trivia (Wii release year, motion controller, sensor bar, and first Wii Zelda game)
+- **30 questions** covering classic Nintendo trivia
+- **4 difficulty levels**: Easy, Medium, Hard, and Mixed
+- **Timed questions**: 15 seconds per question
+- **Highscore system**: Top 5 scores saved to SD card
+- **Randomized questions**: Different order every game
 - Played entirely with the Wii Remote (Wiimote)
 - Use the `A`, `B`, `1`, and `2` buttons to pick an answer
-- Final score screen at the end
 - Press `HOME` to quit at any time
 
 ## Installation
@@ -40,10 +43,10 @@ It detects external drives with an `apps` folder, picks the `.dol` from the curr
 
 ## Building
 
-The project uses [devkitPPC](https://devkitpro.org/wiki/devkitPPC). First export the toolchain path, then run:
+The project uses [devkitPPC](https://devkitpro.org/wiki/devkitPPC). First install devkitPro, then export the toolchain path and run:
 
-```
-export DEVKITPPC=<path to>devkitPPC
+```bash
+export DEVKITPPC=/opt/devkitpro/devkitPPC
 make
 ```
 
@@ -65,7 +68,7 @@ make clean
 
 ```
 ├── source/          # C source code
-│   └── main.c       # Game logic (video, Wiimote input, quiz loop)
+│   └── main.c       # Game logic (video, Wiimote input, quiz loop, highscores)
 ├── Makefile         # devkitPPC build rules
 ├── main.py          # Helper script to install the app to a homebrew drive
 ├── meta.xml         # Homebrew Channel metadata
@@ -77,6 +80,7 @@ make clean
 - devkitPPC toolchain
 - A homebrew-capable Wii (or Wii U with vWii)
 - One Wii Remote
+- SD card (for highscore saving)
 
 ## License
 
